@@ -1,70 +1,189 @@
 # {{ cookiecutter.project_name }}
 
-{{ cookiecutter.project_description }}
-  
-## Installation guide
+[![Version](https://img.shields.io/badge/version-{{ cookiecutter.project_version }}-blue.svg)]() ![Status](https://img.shields.io/badge/status-active-limegreen.svg)
+[![Python](https://img.shields.io/badge/python-{{ cookiecutter.python_version }}+-brightgreen.svg)](https://www.python.org/)
+[![Conda](https://img.shields.io/badge/conda-environment-lightblue.svg)](environment.yml)
+{% if cookiecutter.project_open_source_license != 'No license file' -%}
+[![License](https://img.shields.io/badge/license-{{ cookiecutter.project_open_source_license }}-green.svg)](LICENSE)
+{% endif -%}
 
-Please read [install.md](install.md) for details on how to set up this project.
-
-## Project Organization
-
-    ├── LICENSE
-    ├── tasks.py           <- Invoke with commands like `invoke lab`.
-    ├── README.md          <- The top-level README for developers using this project.
-    ├── install.md         <- Detailed instructions to set up this project.
-    ├── data
-    │   ├── external       <- Data from third party sources.
-    │   ├── interim        <- Intermediate data that has been transformed.
-    │   ├── processed      <- The final, canonical data sets for modeling.
-    │   └── raw            <- The original, immutable data dump.
-    │
-    ├── models             <- Trained and serialized models, model predictions, or model summaries.
-    │
-    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
-    │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-    │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting.
-    │
-    ├── config             <- Configuration files (YAML).
-    │   └── config.yml
-    │
-    ├── tests              <- Unit tests.
-    │   ├── conftest.py
-    │   └── test_paths.py
-    │
-    ├── environment.yml    <- Conda environment specification.
-    │
-    ├── pyproject.toml     <- Project metadata and tool configuration (PEP 621).
-    │
-    ├── .here              <- File that will stop the search if none of the other criteria
-    │                         apply when searching head of project.
-    │
-    └── src                <- Source code for use in this project.
-        ├── __init__.py    <- Makes src a Python module.
-        │
-        ├── data           <- Scripts to download or generate data.
-        │   └── make_dataset.py
-        │
-        ├── features       <- Scripts to turn raw data into features for modeling.
-        │   ├── build_features.py
-        │   └── feature_diagnostics.py
-        │
-        ├── models         <- Scripts to train models and then use trained models to make
-        │   │                 predictions.
-        │   ├── models.py
-        │   ├── predict_model.py
-        │   └── train_model.py
-        │
-        ├── utils          <- Scripts to help with common tasks.
-        │   ├── paths.py   <- Helper functions to relative file referencing across project.
-        │   └── general_functions.py
-        │
-        └── visualization  <- Scripts to create exploratory and results oriented visualizations.
-            └── visualize.py
+> {{ cookiecutter.project_description }}
 
 ---
-Project based on the [cookiecutter conda data science project template](https://github.com/jvelezmagic/cookiecutter-conda-data-science).
+
+## 🚀 Quick Start
+
+### 1️⃣ Setup Environment
+
+```bash
+conda env create --file environment.yml
+conda activate {{ cookiecutter.project_slug }}
+```
+
+### 2️⃣ Explore the Demo
+
+```bash
+jupyter lab notebooks/00-manual-src.ipynb
+```
+
+### 3️⃣ Add Your Data
+
+```bash
+# Place raw data in:
+data/raw/your_dataset.csv
+```
+
+---
+
+## 📁 Directory Guide
+
+| Folder | Purpose | Example |
+|--------|---------|----------|
+| **`data/raw/`** | 🗄️ Original, immutable data | `customer_data.csv` |
+| **`data/processed/`** | 🔄 Cleaned & ready for ML | `features_train.parquet` |
+| **`src/features/`** | ⚙️ Feature engineering code | `build_features.py` |
+| **`src/models/`** | 🤖 Model training & prediction | `train_model.py` |
+| **`notebooks/`** | 📕 Analysis & experiments | `01-eda.ipynb` |
+| **`reports/`** | 📊 Final outputs | `figures/`, `analysis.html` |
+| **`tests/`** | 🧪 Unit tests | `test_models.py` |
+
+---
+
+## 📚 Project Organization
+
+```
+📦 {{ cookiecutter.project_slug }}/
+├── 📋 README.md                    ← You are here!
+├── 📄 LICENSE                      {{ cookiecutter.project_open_source_license | default('MIT') }} license
+├── ⚙️  environment.yml             Conda environment definition
+├── 📝 install.md                   Detailed setup instructions
+├── 🔧 pyproject.toml               Project metadata
+├── 📋 tasks.py                     Invoke commands
+│
+├── 📁 data/
+│   ├── external/                   📥 Third-party sources
+│   ├── raw/                        🗄️  Raw, untouched data
+│   ├── interim/                    🔄 Intermediate transformations
+│   └── processed/                  ✅ Final, clean datasets
+│
+├── 📁 src/                         **Core Python code**
+│   ├── data/                       📥 Data loading utilities
+│   ├── features/                   ⚙️  Feature engineering
+│   ├── models/                     🤖 ML models & training
+│   ├── utils/                      🛠️  Helper functions
+│   └── visualization/              📊 Plotting & analysis
+│
+├── 📘 notebooks/
+│   ├── 00-manual-src.ipynb         🧪 Demo with synthetic data
+│   ├── 01-eda.ipynb                📊 Your EDA notebook
+│   └── 02-modeling.ipynb           🤖 Your modeling notebook
+│
+├── 📊 reports/
+│   ├── figures/                    📈 Plots & visualizations
+│   └── analysis.html               📄 Final reports
+│
+├── 🧪 tests/
+│   └── test_models.py              Unit tests for code
+│
+├── 📎 references/                  📖 Data dictionaries, manuals
+│
+└── ⚙️  config/
+    └── config.yml                  Central configuration
+```
+
+---
+
+## 💡 Usage Examples
+
+### Load Your Data
+
+```python
+from src.utils.general_functions import Utils
+from src.utils.paths import data_raw_dir
+
+utils = Utils()
+df = utils.load_dataset(data_raw_dir('my_data.csv'))
+print(f"Loaded {df.shape[0]} rows, {df.shape[1]} columns")
+```
+
+### Build Features
+
+```python
+from src.features.build_features import describe_dataset
+
+summary = describe_dataset(df)
+print(summary['quantitative'])
+```
+
+### Train a Model
+
+```python
+from src.models.models import Models
+
+models = Models()
+models.grid_training(X_train, y_train)  # Saved to models/ automatically
+```
+
+### Visualize Results
+
+```python
+from src.visualization.visualize import plot_feature_importance
+
+fig = plot_feature_importance(
+    feature_names=X.columns,
+    importances=model.feature_importances_,
+    save=True,
+    filename='importance.png'
+)
+```
+
+---
+
+## 📖 Next Steps
+
+- [ ] ✅ Read [install.md](install.md) for advanced setup
+- [ ] 📊 Run `jupyter lab notebooks/00-manual-src.ipynb` to see all modules in action
+- [ ] 📥 Add your data to `data/raw/`
+- [ ] 🔄 Create feature engineering notebook
+- [ ] 🤖 Train your first model
+- [ ] 📈 Generate reports in `reports/`
+- [ ] 🧪 Write tests in `tests/`
+
+---
+
+## 🏃 Run Tasks
+
+Project includes Invoke task runner for common operations:
+
+```bash
+invoke --list                          # Show all tasks
+invoke lab                             # Start Jupyter Lab
+invoke test                            # Run unit tests
+```
+
+---
+
+## 📞 Need Help?
+
+**Quick References:**
+- 🔗 [Conda Documentation](https://docs.conda.io/)
+- 🔭 [Jupyter Lab Guide](https://jupyterlab.readthedocs.io/)
+- 🤖 [Scikit-Learn API](https://scikit-learn.org/)
+- 📊 [Pandas Cheatsheet](https://pandas.pydata.org/docs/)
+
+---
+
+## 📝 Project Information
+
+**Version:** `{{ cookiecutter.project_version }}`  
+**Python:** `{{ cookiecutter.python_version }}+`  
+**Author:** {{ cookiecutter.project_author_name }}  
+**Email:** {{ cookiecutter.project_author_email }}
+
+---
+
+<div align="center">
+
+**Created from 📊 [Cookiecutter Conda Data Science](https://github.com/Sebastian93BC/cookiecutter-personal)**
+
+</div>

@@ -7,7 +7,7 @@
     "project_open_source_license": ["No license file", "MIT", "BSD-3-Clause"],
     "project_packages": ["All", "Minimal"],
     "python_version": "3.11",
-    "project_version": "0.1.0",
+    "project_version": "0.2.0",
     "project_scope": ["exploratory", "production"],
     "use_dvc": ["no", "yes"],
     "use_uv": ["no", "yes"],
