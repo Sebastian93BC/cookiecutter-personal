@@ -1,4 +1,9 @@
-Trabajar en ambiente platzi_machine_learning 
+añadir un notebook de test de algunas de las funciones que tenemos en src a modo de manual
+creación de entono virtual y definición en el proyecto para que los agentes trabajen sobre este
 
-plan de implemetacion en cambiar modelo
 
+versionado de la plantilla
+la plantilla debe Trabajar sobre el ambiente siempre ambiente platzi_machine_learning
+incialización del repositorio y capacidad de definir desde la generación de la plantilla el repositorio remoto (opcional)
+
+agentes para la plantilla

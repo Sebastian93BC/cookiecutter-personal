@@ -1,0 +1,15 @@
+# {{ cookiecutter.project_name }} Configuration
+# Edit values below to match your project.
+
+data:
+  raw_file: "data.csv"
+
+model:
+  test_size: 0.2
+  random_state: 42
+
+paths:
+  raw: "data/raw"
+  processed: "data/processed"
+  interim: "data/interim"
+  models: "models"

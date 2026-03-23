@@ -25,8 +25,6 @@ var/
 *.egg
 
 # PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
 *.manifest
 *.spec
 
@@ -44,13 +42,11 @@ nosetests.xml
 coverage.xml
 *,cover
 .hypothesis/
+.pytest_cache/
 
 # Translations
 *.mo
 *.pot
-
-# Django stuff:
-*.log
 
 # Sphinx documentation
 docs/_build/
@@ -61,8 +57,39 @@ target/
 # pyenv python configuration file
 .python-version
 
-# exclude data from source control by default
-/data/
+# Environment variables
+.env
 
-# ipynb checkpoints
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data (keep directory structure via .gitkeep, ignore contents)
+data/raw/*
+data/processed/*
+data/interim/*
+data/external/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/interim/.gitkeep
+!data/external/.gitkeep
+
+# Models (keep directory, ignore contents)
+models/*
+!models/.gitkeep
+
+# Serialized files
+*.pkl
+*.joblib
+*.h5
+*.hdf5
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
 .ipynb_checkpoints

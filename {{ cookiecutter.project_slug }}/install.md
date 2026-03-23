@@ -1,123 +1,96 @@
-# {{ cookiecutter.project_name }} guide installation
+# {{ cookiecutter.project_name }} — Installation Guide
 
 ## Prerequisites
 
-- [Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/download.html)
-- Optional [Mamba](https://mamba.readthedocs.io/en/latest/)
+- [Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/download.html) or [Mamba](https://mamba.readthedocs.io/en/latest/)
 
 ## Create environment
 
 ```bash
 conda env create -f environment.yml
-activate {{ cookiecutter.project_slug }}
+conda activate {{ cookiecutter.project_slug }}
 ```
 
-or 
+or with Mamba (faster):
 
 ```bash
 mamba env create -f environment.yml
-activate {{ cookiecutter.project_slug }}
+mamba activate {{ cookiecutter.project_slug }}
 ```
 
-The packages necessary to run the project are now installed inside the conda environment.
+{% if cookiecutter.use_uv == "yes" -%}
+### Alternative: uv / pip
 
-**Note: The following sections assume you are located in your conda environment.**
+If you prefer not to use Conda:
 
-## Set up project's module
+```bash
+python -m venv .venv
+source .venv/bin/activate   # Linux/macOS
+uv pip install -e ".[dev]"
+```
+{% endif -%}
 
-To move beyond notebook prototyping, all reusable code should go into the `{{ cookiecutter.project_module_name }}/` folder package. To use that package inside your project, install the project's module in editable mode, so you can edit files in the `{{ cookiecutter.project_module_name }}` folder and use the modules inside your notebooks :
+## Install project module
+
+Install the `src/` package in editable mode so you can import it from notebooks and scripts:
 
 ```bash
 pip install --editable .
 ```
 
-To use the module inside your notebooks, add `%autoreload` at the top of your notebook :
+To auto-reload modules inside notebooks:
 
 ```python
 %load_ext autoreload
 %autoreload 2
 ```
 
-Example of module usage :
+Example usage:
 
 ```python
-from {{ cookiecutter.project_module_name }}.utils.paths import data_dir
-data_dir()
+from src.utils.paths import data_raw_dir
+data_raw_dir()
 ```
 
-## Set up Git diff for notebooks and lab
+## Git diff for notebooks
 
 We use [nbdime](https://nbdime.readthedocs.io/en/stable/index.html) for diffing and merging Jupyter notebooks.
 
-To configure it to this git project :
-
-```
+```bash
 nbdime config-git --enable
 ```
 
-To enable notebook extension :
+{% if cookiecutter.project_scope == "production" -%}
+## Pre-commit hooks
 
-```
-nbdime extensions --enable --sys-prefix
-```
+This project uses [pre-commit](https://pre-commit.com/) to run linting and formatting checks before each commit.
 
-Or, if you prefer full control, you can run the individual steps:
-
-```
-jupyter serverextension enable --py nbdime --sys-prefix
-
-jupyter nbextension install --py nbdime --sys-prefix
-jupyter nbextension enable --py nbdime --sys-prefix
-
-jupyter labextension install nbdime-jupyterlab
+```bash
+pre-commit install
 ```
 
-You may need to rebuild the extension : `jupyter lab build`
+To run all hooks manually:
 
-## Set up Plotly for Jupyterlab
-
-Plotly works in notebook but further steps are needed for it to work in Jupyterlab :
-
-* @jupyter-widgets/jupyterlab-manager # Jupyter widgets support
-* plotlywidget  # FigureWidget support
-* @jupyterlab/plotly-extension  # offline iplot support
-
-There are conflict versions between those extensions so check the [latest Plotly README](https://github.com/plotly/plotly.py#installation-of-plotlypy-version-3) to ensure you fetch the correct ones. 
-
-```
-jupyter labextension install @jupyter-widgets/jupyterlab-manager@0.36 --no-build
-jupyter labextension install plotlywidget@0.2.1  --no-build
-jupyter labextension install @jupyterlab/plotly-extension@0.16  --no-build
-jupyter lab build
+```bash
+pre-commit run --all-files
 ```
 
-# Invoke command
+{% endif -%}
+## Invoke tasks
 
-We use [Invoke](http://www.pyinvoke.org/) to manage an
-unique entry point into all of the project tasks.
-
-List of all tasks for project :
+We use [Invoke](http://www.pyinvoke.org/) as a task runner.
 
 ```
 $ invoke -l
 
 Available tasks:
 
-  lab     Launch Jupyter lab
+  clean       Remove Python file artifacts.
+  format      Run ruff formatter on src/.
+  lab         Launch Jupyter Lab.
+  lint        Run ruff linter on src/.
+  notebook    Launch Jupyter Notebook.
+  test        Run pytest.
 ```
 
-Help on a particular task :
-
-```
-$ invoke --help lab
-Usage: inv[oke] [--core-opts] notebook [--options] [other tasks here ...]
-
-Docstring:
-  Launch Jupyter lab
-
-Options:
-  -i STRING, --ip=STRING   IP to listen on, defaults to *
-  -p, --port               Port to listen on, defaults to 8888
-```
-
-You will find the definition of each task inside the `tasks.py` file, so you can add your own.
+Task definitions live in `tasks.py` — add your own there.

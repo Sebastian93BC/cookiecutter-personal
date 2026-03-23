@@ -4,31 +4,44 @@ _A logical, reasonably standardized, but flexible project structure for doing an
 
 ## Requirements
 
-- [Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/download.html)
-- [Cookiecutter Python package](http://cookiecutter.readthedocs.org/en/latest/installation.html): This can be installed with pip by or conda depending on how you manage your Python packages:
+- [Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/download.html) or [Mamba](https://mamba.readthedocs.io/en/latest/)
+- [Cookiecutter Python package](http://cookiecutter.readthedocs.org/en/latest/installation.html):
 
-``` bash
+```bash
 pip install cookiecutter
 ```
 
 or
 
-``` bash
+```bash
 conda install -c conda-forge cookiecutter
 ```
 
 ## Create a new project
 
-In a folder where you want your project generated:
+En terminal, desde donde quieras generar el proyecto:
+```bash
+cookiecutter template-data-science-base
+```
 
+o si está publicado en GitHub:
 ```bash
 cookiecutter https://github.com/jvelezmagic/cookiecutter-conda-data-science
 ```
 
+### Template options
+
+| Option | Values | Description |
+|---|---|---|
+| `project_packages` | All / Minimal | Include extended ML packages or keep it lean |
+| `project_scope` | exploratory / production | Production adds pre-commit, pytest, and GitHub Actions CI |
+| `use_dvc` | no / yes | Add DVC for data version control |
+| `use_uv` | no / yes | Document uv/pip as an alternative to Conda |
+
 ## Resulting directory structure
 
     ├── LICENSE
-    ├── tasks.py           <- Invoke with commands like `notebook`.
+    ├── tasks.py           <- Invoke with commands like `invoke lab`.
     ├── README.md          <- The top-level README for developers using this project.
     ├── install.md         <- Detailed instructions to set up this project.
     ├── data
@@ -46,32 +59,41 @@ cookiecutter https://github.com/jvelezmagic/cookiecutter-conda-data-science
     ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
     │
     ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures         <- Generated graphics and figures to be used in reporting.
+    │   └── figures        <- Generated graphics and figures to be used in reporting.
     │
-    ├── environment.yml    <- The requirements file for reproducing the analysis environment.
+    ├── config             <- Configuration files (YAML).
+    │   └── config.yml
+    │
+    ├── tests              <- Unit tests.
+    │   ├── conftest.py
+    │   └── test_paths.py
+    │
+    ├── environment.yml    <- Conda environment specification.
+    │
+    ├── pyproject.toml     <- Project metadata and tool configuration (PEP 621).
     │
     ├── .here              <- File that will stop the search if none of the other criteria
     │                         apply when searching head of project.
     │
-    ├── setup.py           <- Makes project pip installable (pip install -e .)
-    │                         so {{ cookiecutter.project_module_name }} can be imported.
-    │
-    └── {{ cookiecutter.project_module_name }}               <- Source code for use in this project.
-        ├── __init__.py    <- Makes {{ cookiecutter.project_module_name }} a Python module.
+    └── src                <- Source code for use in this project.
+        ├── __init__.py    <- Makes src a Python module.
         │
         ├── data           <- Scripts to download or generate data.
         │   └── make_dataset.py
         │
         ├── features       <- Scripts to turn raw data into features for modeling.
-        │   └── build_features.py
+        │   ├── build_features.py
+        │   └── feature_diagnostics.py
         │
         ├── models         <- Scripts to train models and then use trained models to make
         │   │                 predictions.
+        │   ├── models.py
         │   ├── predict_model.py
         │   └── train_model.py
         │
         ├── utils          <- Scripts to help with common tasks.
-            └── paths.py   <- Helper functions to relative file referencing across project.
+        │   ├── paths.py   <- Helper functions to relative file referencing across project.
+        │   └── general_functions.py
         │
         └── visualization  <- Scripts to create exploratory and results oriented visualizations.
             └── visualize.py

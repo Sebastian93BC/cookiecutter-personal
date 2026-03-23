@@ -1,0 +1,6 @@
+# Add patterns of files dvc should ignore, which could improve
+# temporary files, build artifacts, and editor backups.
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*.egg-info/

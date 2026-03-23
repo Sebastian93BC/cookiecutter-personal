@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "{{ cookiecutter.project_slug }}"
+version = "{{ cookiecutter.project_version }}"
+description = "{{ cookiecutter.project_description }}"
+readme = "README.md"
+requires-python = ">={{ cookiecutter.python_version }}"
+{% if cookiecutter.project_open_source_license == 'MIT' -%}
+license = "MIT"
+{% elif cookiecutter.project_open_source_license == 'BSD-3-Clause' -%}
+license = "BSD-3-Clause"
+{% endif -%}
+authors = [
+    { name = "{{ cookiecutter.project_author_name }}", email = "{{ cookiecutter.project_author_email }}" },
+]
+
+[tool.setuptools.packages.find]
+include = ["src*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py{{ cookiecutter.python_version.replace('.', '') }}"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

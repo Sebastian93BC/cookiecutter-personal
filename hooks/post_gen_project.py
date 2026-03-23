@@ -1,14 +1,38 @@
 import os
+import shutil
 import subprocess
 
 MESSAGE_COLOR = "\x1b[34m"
+WARN_COLOR = "\x1b[33m"
 RESET_ALL = "\x1b[0m"
 
-print(f"{MESSAGE_COLOR}Almost done!")
-print(f"Initializing a git repository...{RESET_ALL}")
+# Remove license file if not selected
+if "{{ cookiecutter.project_open_source_license }}" == "No license file":
+    os.remove("LICENSE")
 
-subprocess.call(['git', 'init'])
-subprocess.call(['git', 'add', '*'])
-subprocess.call(['git', 'commit', '-m', 'Initial commit'])
+# Remove DVC files if not selected
+if "{{ cookiecutter.use_dvc }}" == "no":
+    for f in [".dvcignore"]:
+        if os.path.exists(f):
+            os.remove(f)
 
-print(f"{MESSAGE_COLOR}The beginning of your destiny is defined now! Create and have fun!{RESET_ALL}")
+# Remove CI/CD if scope is exploratory
+if "{{ cookiecutter.project_scope }}" == "exploratory":
+    if os.path.exists(".github"):
+        shutil.rmtree(".github")
+    if os.path.exists(".pre-commit-config.yaml"):
+        os.remove(".pre-commit-config.yaml")
+
+# Initialize git repository
+if shutil.which("git"):
+    print(f"{MESSAGE_COLOR}Almost done!")
+    print(f"Initializing a git repository...{RESET_ALL}")
+
+    subprocess.call(["git", "init"])
+    subprocess.call(["git", "add", "."])
+    subprocess.call(["git", "commit", "-m", "Initial commit"])
+
+    print(f"{MESSAGE_COLOR}The beginning of your destiny is defined now! Create and have fun!{RESET_ALL}")
+else:
+    print(f"{WARN_COLOR}WARNING: git not found. Skipping repository initialization.")
+    print(f"You can initialize it later with 'git init'.{RESET_ALL}")

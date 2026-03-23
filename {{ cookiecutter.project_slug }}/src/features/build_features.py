@@ -150,11 +150,10 @@ def check_normality(df):
         axes[i, 1].set_title(f'Q-Q Plot: {col}')
 
     # Ajustar espacios entre gráficos
-    plt.tight_layout()
-    plt.show()
+    fig.tight_layout()
 
     # 9️⃣ Retornar resultados como DataFrame
-    return pd.DataFrame(results)
+    return pd.DataFrame(results), fig
 
 
 # identificación de valores nulos/faltantes y eliminación de columnas con alto porcentaje de nulos
@@ -334,7 +333,6 @@ def drop_rows_high_nulls(df, threshold=0.5):
     print(f"Dropped {len(rows_to_drop)} rows out of {df.shape[0]} "
           f"({len(rows_to_drop)/df.shape[0]*100:.2f}%) due to high null values.")
 
-    # breturn df_cleaned, dropped_summary
     return df_cleaned
 
 
@@ -384,7 +382,7 @@ def show_duplicate_records(df, subset=None, keep=False, sort=True, verbose=True)
         if verbose:
             print("No duplicate records found.")
 
-    # return duplicates
+    return duplicates
 
 
 
@@ -438,104 +436,6 @@ def check_and_drop_duplicates(df, subset=None, keep='first', verbose=True):
 
     return df_cleaned
 
-
-
-# def check_and_drop_duplicates(
-#     df,
-#     subset=None,
-#     keep='first',
-#     similarity_threshold=0.8,
-#     verbose=True
-# ):
-#     """
-#     Checks for duplicate rows in a DataFrame and optionally drops them.
-#     Can remove rows with approximate duplicates based on a similarity threshold
-#     between 0 and 1 (1 = 100% similarity).
-
-#     Parameters
-#     ----------
-#     df : pandas.DataFrame
-#         The DataFrame to analyze.
-#     subset : list or None, optional (default=None)
-#         Columns to consider when identifying duplicates. If None, all columns are used.
-#     keep : {'first', 'last', False}, optional (default='first')
-#         Determines which duplicates to keep.
-#     similarity_threshold : float, optional (default=0.8)
-#         Threshold for approximate duplicates (0 to 1). 1 = 100% similarity.
-#         Only applies to string columns.
-#     verbose : bool, optional (default=True)
-#         If True, prints a summary of duplicate records found and removed.
-
-#     Returns
-#     -------
-#     df_cleaned : pandas.DataFrame
-#         DataFrame with duplicates removed according to parameters.
-#     summary : dict
-#         Summary dictionary containing number of duplicates and columns considered.
-#     """
-
-#     # --- Validate similarity_threshold ---
-#     if not (0 <= similarity_threshold <= 1):
-#         raise ValueError("similarity_threshold must be between 0 and 1.")
-
-#     # Convert threshold to percentage for fuzz.ratio()
-#     sim_thresh_pct = similarity_threshold * 100
-
-#     if subset is None:
-#         subset = df.columns.tolist()
-    
-#     df_cleaned = df.copy()
-#     total_duplicates_removed = 0
-
-#     # --- 1. Drop exact duplicates ---
-#     num_exact_duplicates = df_cleaned.duplicated(subset=subset, keep=keep).sum()
-#     df_cleaned = df_cleaned.drop_duplicates(subset=subset, keep=keep)
-#     total_duplicates_removed += num_exact_duplicates
-
-#     # --- 2. Drop approximate duplicates for string columns only ---
-#     string_cols = [col for col in subset if pd.api.types.is_string_dtype(df_cleaned[col])]
-#     approx_duplicates_idx = set()
-
-#     if string_cols:
-#         subset_df = df_cleaned[string_cols]
-#         rows = subset_df.reset_index()  # keep original index
-#         for i in range(len(rows)):
-#             if rows.loc[i, 'index'] in approx_duplicates_idx:
-#                 continue
-#             for j in range(i + 1, len(rows)):
-#                 if rows.loc[j, 'index'] in approx_duplicates_idx:
-#                     continue
-#                 # Compare all string columns in subset
-#                 similarity = [
-#                     fuzz.ratio(str(rows.loc[i, col]), str(rows.loc[j, col]))
-#                     for col in string_cols
-#                 ]
-#                 avg_similarity = sum(similarity) / len(similarity)
-#                 if avg_similarity >= sim_thresh_pct:
-#                     approx_duplicates_idx.add(rows.loc[j, 'index'])
-
-#     # Drop approximate duplicates
-#     df_cleaned = df_cleaned.drop(index=approx_duplicates_idx)
-#     total_duplicates_removed += len(approx_duplicates_idx)
-
-#     # --- 3. Build summary ---
-#     summary = {
-#         'subset_columns': subset,
-#         'exact_duplicates_removed': int(num_exact_duplicates),
-#         'approx_duplicates_removed': int(len(approx_duplicates_idx)),
-#         'total_duplicates_removed': int(total_duplicates_removed)
-#     }
-
-#     if verbose:
-#         print(f"Columns evaluated: {subset}")
-#         print(f"Exact duplicates removed: {num_exact_duplicates}")
-#         print(f"Approximate duplicates removed (threshold={similarity_threshold*100:.0f}%): {len(approx_duplicates_idx)}")
-#         print(f"Total duplicates removed: {total_duplicates_removed}")
-
-#     # return df_cleaned, summary
-#     return df_cleaned
-
-#############################################################
 
 # Detección de outliers usando el método de Tukey (IQR)
 def detect_outliers_iqr(
@@ -614,10 +514,9 @@ def detect_outliers_iqr(
             axes[i].set_title(f'Boxplot - {col}')
 
     if show_plots:
-        plt.tight_layout()
-        plt.show()
+        fig.tight_layout()
 
-    return pd.DataFrame(summary), outliers_dict
+    return pd.DataFrame(summary), outliers_dict, (fig if show_plots else None)
 
 
 # Z-scores para detección de valores extremos
@@ -788,7 +687,7 @@ def drop_rows_by_indices(df, indices, reset_index=False):
 
 def sqrt_transform_feature(
     df,
-    column='Kilómetraje',
+    column,
     new_column_name=None,
     drop_original=False
 ):
@@ -800,7 +699,7 @@ def sqrt_transform_feature(
     ----------
     df : pandas.DataFrame
         Input DataFrame.
-    column : str, optional (default='Kilómetraje')
+    column : str
         Column to transform.
     new_column_name : str or None, optional (default=None)
         Name of the transformed column.
@@ -831,7 +730,7 @@ def sqrt_transform_feature(
     values = pd.to_numeric(df_transformed[column], errors='coerce')
 
     # Replace negative values with NaN
-    values[values < 0] = np.nan
+    values = values.where(values >= 0)
 
     # Apply square root transformation
     df_transformed[new_column_name] = np.sqrt(values)
@@ -846,7 +745,7 @@ def sqrt_transform_feature(
 
 def log_transform_feature(
     df,
-    column='Precio',
+    column,
     new_column_name=None,
     drop_original=False,
     use_log1p=True
@@ -858,7 +757,7 @@ def log_transform_feature(
     ----------
     df : pandas.DataFrame
         Input DataFrame.
-    target_column : str, optional (default='Precio')
+    column : str
         Target column to transform.
     new_column_name : str or None, optional (default=None)
         Name of the transformed column.
@@ -1221,7 +1120,7 @@ def apply_onehot_encoding(
             )
             df_out = pd.concat([df_out, dummies], axis=1)
 
-    return df_out, grouped_categories, encoders
+    return df_out, grouped_categories
 
 #
 

@@ -13,6 +13,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.ensemble import RandomForestRegressor
 
+from src.utils.paths import models_dir
+
 
 class Utils:
     """
@@ -30,9 +32,9 @@ class Utils:
 
     def _get_models_dir(self) -> Path:
         """Obtiene y crea el directorio de modelos si no existe."""
-        models_dir = Path(__file__).resolve().parents[2] / "models"
-        models_dir.mkdir(parents=True, exist_ok=True)
-        return models_dir
+        target = models_dir()
+        target.mkdir(parents=True, exist_ok=True)
+        return target
 
     def features_target(self, dataset: pd.DataFrame, drop_cols: Union[List[str], str], y: str) -> Tuple[pd.DataFrame, pd.Series]:
         """
@@ -83,7 +85,7 @@ class Utils:
         target_col: str, 
         correlation_threshold: float = 0.8, 
         importance_cutoff: float = 0.01
-    ) -> List[str]:
+    ) -> Tuple[List[str], plt.Figure]:
         """
         Analiza el dataset para identificar variables redundantes o de bajo impacto predictivo.
 
@@ -101,7 +103,7 @@ class Utils:
                 una variable. Por defecto 0.01.
 
         Returns:
-            List[str]: Lista de nombres de columnas sugeridas para su eliminación.
+            Tuple[List[str], plt.Figure]: Lista de columnas sugeridas para eliminación y la figura generada.
         """
 
 
@@ -144,20 +146,20 @@ class Utils:
             print(f"   • '{v}' aporta valor insignificante ({importance_dict[v]:.4f}).")
     
         # 5. Visualización
-        plt.figure(figsize=(10, 6))
+        fig, ax = plt.subplots(figsize=(10, 6))
         sns.barplot(
             data=importances_df,
             x='Importancia',
             y='Variable',
             hue='Variable',
             palette='magma',
-            legend=False
+            legend=False,
+            ax=ax
         )
         
-        plt.axvline(importance_cutoff, color='red', linestyle='--', label='Umbral de corte')
-        plt.title('Importancia Relativa de las Variables', fontsize=13)
-        plt.tight_layout()
-        plt.show()
+        ax.axvline(importance_cutoff, color='red', linestyle='--', label='Umbral de corte')
+        ax.set_title('Importancia Relativa de las Variables', fontsize=13)
+        fig.tight_layout()
     
         total_to_drop = list(to_drop_corr) + low_importance_vars
-        return total_to_drop
+        return total_to_drop, fig

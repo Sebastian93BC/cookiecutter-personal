@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -el {0}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: conda-incubator/setup-miniconda@v3
+        with:
+          environment-file: environment.yml
+          activate-environment: {{ "{{" }} cookiecutter.project_slug {{ "}}" }}
+          auto-activate-base: false
+
+      - name: Install project
+        run: pip install --editable .
+
+      - name: Lint with ruff
+        run: ruff check src/
+
+      - name: Run tests
+        run: pytest tests/ -v

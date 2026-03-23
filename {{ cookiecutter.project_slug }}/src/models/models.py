@@ -1,12 +1,10 @@
 import numpy as np
-import sys
-sys.path.append('..')
 
 from sklearn.svm import SVR
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.model_selection import GridSearchCV
 
-from platzi_machine_learning.platzi_machine_learning.utils.generalFunctions import Utils
+from src.utils.general_functions import Utils
 
 
 class Models:
