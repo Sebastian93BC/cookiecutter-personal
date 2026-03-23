@@ -32,6 +32,11 @@ if shutil.which("git"):
     subprocess.call(["git", "add", "."])
     subprocess.call(["git", "commit", "-m", "Initial commit"])
 
+    remote_url = "{{ cookiecutter.remote_url }}"
+    if remote_url.strip():
+        subprocess.call(["git", "remote", "add", "origin", remote_url])
+        print(f"{MESSAGE_COLOR}Remote 'origin' configured: {remote_url}{RESET_ALL}")
+
     print(f"{MESSAGE_COLOR}The beginning of your destiny is defined now! Create and have fun!{RESET_ALL}")
 else:
     print(f"{WARN_COLOR}WARNING: git not found. Skipping repository initialization.")

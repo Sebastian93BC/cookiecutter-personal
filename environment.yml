@@ -1,9 +1,8 @@
 # conda env create --file environment.yml
 # mamba env create --file environment.yml
-name: cookiecutter-conda-data-science
+name: platzi_machine_learning
 channels:
-- anaconda
-- conda-forge
-- defaults
+  - conda-forge
+  - defaults
 dependencies:
-- cookiecutter
+  - cookiecutter

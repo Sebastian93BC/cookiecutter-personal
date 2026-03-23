@@ -94,3 +94,9 @@ target/
 # Cookiecutter
 output/
 python_boilerplate/
+
+# Personal / local files
+notes.txt
+
+# VS Code workspace settings (machine-specific)
+.vscode/
