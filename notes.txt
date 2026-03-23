@@ -1,4 +1,4 @@
 Trabajar en ambiente platzi_machine_learning 
-Hacer commit antes de implementar 
+
 plan de implemetacion en cambiar modelo
 
