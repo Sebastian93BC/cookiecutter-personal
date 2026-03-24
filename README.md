@@ -1,9 +1,10 @@
-# 📊 Cookiecutter Conda Data Science
+# Cookiecutter Conda Data Science
 
-[![Version](https://img.shields.io/badge/version-0.2.0-blue.svg)](https://github.com/Sebastian93BC/cookiecutter-personal)
-[![Python 3.11+](https://img.shields.io/badge/python-3.11+-brightgreen.svg)](https://www.python.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.md)
-[![Cookiecutter](https://img.shields.io/badge/cookiecutter-template-informational.svg)](http://cookiecutter.readthedocs.org/)
+<div align="center">
+
+[![Version](https://img.shields.io/badge/version-0.2.0-blue?style=for-the-badge&logo=gitbook&logoColor=white)](https://github.com/Sebastian93BC/cookiecutter-personal) [![Python 3.11+](https://img.shields.io/badge/Python-3.11+-brightgreen?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge&logo=opensourceinitiative&logoColor=white)](LICENSE.md) [![Cookiecutter](https://img.shields.io/badge/Cookiecutter-Template-lightgrey?style=for-the-badge&logo=cookiecutter&logoColor=white)](http://cookiecutter.readthedocs.org/)
+
+</div>
 
 > _A logical, reasonably standardized, but flexible project structure for doing and sharing data science work._
 

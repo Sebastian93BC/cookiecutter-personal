@@ -1,6 +1,7 @@
 MIT License
 
 Copyright (c) 2026 Sebastian93BC
+Project version: 0.2.0
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

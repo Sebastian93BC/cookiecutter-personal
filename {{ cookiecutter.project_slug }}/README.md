@@ -1,11 +1,13 @@
 # {{ cookiecutter.project_name }}
 
-[![Version](https://img.shields.io/badge/version-{{ cookiecutter.project_version }}-blue.svg)]() ![Status](https://img.shields.io/badge/status-active-limegreen.svg)
-[![Python](https://img.shields.io/badge/python-{{ cookiecutter.python_version }}+-brightgreen.svg)](https://www.python.org/)
-[![Conda](https://img.shields.io/badge/conda-environment-lightblue.svg)](environment.yml)
+<div align="center">
+
+[![Version](https://img.shields.io/badge/version-{{ cookiecutter.project_version }}-blue?style=for-the-badge&logo=gitbook&logoColor=white)]() [![Status](https://img.shields.io/badge/status-active-limegreen?style=for-the-badge)]() [![Python](https://img.shields.io/badge/Python-{{ cookiecutter.python_version | default('3.11') }}+-brightgreen?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/) [![Conda](https://img.shields.io/badge/Conda-environment-lightblue?style=for-the-badge&logo=conda&logoColor=white)](environment.yml)
 {% if cookiecutter.project_open_source_license != 'No license file' -%}
-[![License](https://img.shields.io/badge/license-{{ cookiecutter.project_open_source_license }}-green.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-{{ cookiecutter.project_open_source_license }}-green?style=for-the-badge&logo=opensourceinitiative&logoColor=white)](LICENSE)
 {% endif -%}
+
+</div>
 
 > {{ cookiecutter.project_description }}
 
