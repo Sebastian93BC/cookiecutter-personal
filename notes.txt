@@ -1,8 +1,2 @@
-
-
-
-
-
-
 agentes para la plantilla
 ver lo que está en la raiz .github

@@ -2,7 +2,13 @@
 
 <div align="center">
 
+**📦 Project Badges**
+
 [![Version](https://img.shields.io/badge/version-0.2.0-blue?style=for-the-badge&logo=gitbook&logoColor=white)](https://github.com/Sebastian93BC/cookiecutter-personal) [![Python 3.11+](https://img.shields.io/badge/Python-3.11+-brightgreen?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge&logo=opensourceinitiative&logoColor=white)](LICENSE.md) [![Cookiecutter](https://img.shields.io/badge/Cookiecutter-Template-lightgrey?style=for-the-badge&logo=cookiecutter&logoColor=white)](http://cookiecutter.readthedocs.org/)
+
+**🌐 Social Media**
+
+[![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/UCwN6n_iNpulAstpkysAv5jw?style=for-the-badge&logo=youtube&logoColor=white&color=red)](https://www.youtube.com/@jsebastianbustos) [![GitHub followers](https://img.shields.io/github/followers/Sebastian93BC?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Sebastian93BC) [![LinkedIn Follow](https://img.shields.io/badge/LinkedIn-Follow-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/feed/) [![X Follow](https://img.shields.io/badge/X-Follow-black?style=for-the-badge&logo=x&logoColor=white)](https://x.com/bustos_cordero)
 
 </div>
 
@@ -235,3 +241,31 @@ Other links that helped shape this cookiecutter :
 
 - [Write less terrible code with Jupyter Notebook](https://blog.godatadriven.com/write-less-terrible-notebook-code)
 - [Cookiecutter DataScience Opinions](http://drivendata.github.io/cookiecutter-data-science/#opinions)
+
+---
+
+## 💬 ¿Tienes dudas o sugerencias?
+
+- 💭 **Comentarios en YouTube**: La mejor forma de hacer preguntas específicas sobre cada capítulo
+- 🐛 **Issues en GitHub**: Para reportar bugs o proponer mejoras al código
+- 💼 **LinkedIn/Twitter**: Para conversaciones más amplias sobre IA y desarrollo
+
+**¡Suscríbete para no perderte nada!** 🔔
+
+---
+
+<div align="center">
+
+### 🎯 ¿Te ha resultado útil este contenido?
+
+**¡Conéctate conmigo en LinkedIn!** 
+
+Me encantaría conectar contigo y conocer tu perspectiva. En LinkedIn compartimos ideas sobre desarrollo, IA y crecimiento profesional. 
+
+[![Conecta en LinkedIn](https://img.shields.io/badge/💼%20CONECTA%20EN%20LINKEDIN-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/feed/)
+
+¡Nos vemos 👋🏻!
+
+</div>
+
+¡Gracias!
