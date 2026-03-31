@@ -100,3 +100,8 @@ notes.txt
 
 # VS Code workspace settings (machine-specific)
 .vscode/
+
+# Microsoft Office temp files
+.docx
+.xlsx
+.pptx

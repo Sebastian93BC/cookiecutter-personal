@@ -8,7 +8,7 @@
 
 **🌐 Social Media**
 
-[![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/UCwN6n_iNpulAstpkysAv5jw?style=for-the-badge&logo=youtube&logoColor=white&color=red)](https://www.youtube.com/@jsebastianbustos) [![GitHub followers](https://img.shields.io/github/followers/Sebastian93BC?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Sebastian93BC) [![LinkedIn Follow](https://img.shields.io/badge/LinkedIn-Follow-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/feed/) [![X Follow](https://img.shields.io/badge/X-Follow-black?style=for-the-badge&logo=x&logoColor=white)](https://x.com/bustos_cordero)
+[![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/UCwN6n_iNpulAstpkysAv5jw?style=for-the-badge&logo=youtube&logoColor=white&color=red)](https://www.youtube.com/@jsebastianbustos) [![GitHub followers](https://img.shields.io/github/followers/Sebastian93BC?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Sebastian93BC) [![LinkedIn Follow](https://img.shields.io/badge/LinkedIn-Follow-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sebastian-bustos-cordero-851a1421b/) [![X Follow](https://img.shields.io/badge/X-Follow-black?style=for-the-badge&logo=x&logoColor=white)](https://x.com/bustos_cordero)
 
 </div>
 
@@ -262,7 +262,7 @@ Other links that helped shape this cookiecutter :
 
 Me encantaría conectar contigo y conocer tu perspectiva. En LinkedIn compartimos ideas sobre desarrollo, IA y crecimiento profesional. 
 
-[![Conecta en LinkedIn](https://img.shields.io/badge/💼%20CONECTA%20EN%20LINKEDIN-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/feed/)
+[![Conecta en LinkedIn](https://img.shields.io/badge/💼%20CONECTA%20EN%20LINKEDIN-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sebastian-bustos-cordero-851a1421b/)
 
 ¡Nos vemos 👋🏻!
 

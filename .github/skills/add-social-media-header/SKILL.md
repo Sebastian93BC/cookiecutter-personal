@@ -33,7 +33,7 @@ Replace the following placeholders with your actual information:
 - `Sebastian93BC` - Your GitHub username (e.g., 0GiS0)
 - `https://www.youtube.com/@jsebastianbustos` - Full URL to your YouTube channel (e.g., https://www.youtube.com/c/YourChannelName)
 - `https://github.com/Sebastian93BC` - Full URL to your GitHub profile (e.g., https://github.com/YourUsername)
-- `https://www.linkedin.com/feed/` - Full URL to your LinkedIn profile (e.g., https://www.linkedin.com/in/yourprofile/)
+- `https://www.linkedin.com/in/sebastian-bustos-cordero-851a1421b/` - Full URL to your LinkedIn profile (e.g., https://www.linkedin.com/in/yourprofile/)
 - `https://x.com/bustos_cordero` - Full URL to your X/Twitter profile (e.g., https://twitter.com/YourHandle)
 
 ## Example with Real URLs

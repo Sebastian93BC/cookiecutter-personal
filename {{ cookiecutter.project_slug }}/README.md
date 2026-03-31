@@ -1,5 +1,13 @@
 # {{ cookiecutter.project_name }}
+{% if cookiecutter.add_readme_header == "yes" %}
+<div align="center">
 
+{% if cookiecutter.social_youtube_url and cookiecutter.social_youtube_channel_id %}[![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/{{ cookiecutter.social_youtube_channel_id }}?style=for-the-badge&logo=youtube&logoColor=white&color=red)]({{ cookiecutter.social_youtube_url }}) {% endif %}{% if cookiecutter.social_github_username %}[![GitHub followers](https://img.shields.io/github/followers/{{ cookiecutter.social_github_username }}?style=for-the-badge&logo=github&logoColor=white)](https://github.com/{{ cookiecutter.social_github_username }}) {% endif %}{% if cookiecutter.social_linkedin_url %}[![LinkedIn Follow](https://img.shields.io/badge/LinkedIn-Follow-blue?style=for-the-badge&logo=linkedin&logoColor=white)]({{ cookiecutter.social_linkedin_url }}) {% endif %}{% if cookiecutter.social_x_url %}[![X Follow](https://img.shields.io/badge/X-Follow-black?style=for-the-badge&logo=x&logoColor=white)]({{ cookiecutter.social_x_url }}){% endif %}
+
+
+</div>
+
+{% endif %}
 <div align="center">
 
 [![Version](https://img.shields.io/badge/version-{{ cookiecutter.project_version }}-blue?style=for-the-badge&logo=gitbook&logoColor=white)]() [![Status](https://img.shields.io/badge/status-active-limegreen?style=for-the-badge)]() [![Python](https://img.shields.io/badge/Python-{{ cookiecutter.python_version | default('3.11') }}+-brightgreen?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/) [![Conda](https://img.shields.io/badge/Conda-environment-lightblue?style=for-the-badge&logo=conda&logoColor=white)](environment.yml)
@@ -174,7 +182,32 @@ invoke test                            # Run unit tests
 - 📊 [Pandas Cheatsheet](https://pandas.pydata.org/docs/)
 
 ---
+{% if cookiecutter.add_readme_footer == "yes" %}
 
+## 💬 ¿Tienes dudas o sugerencias?
+
+- 💭 **YouTube**: comentarios por capítulo
+- 🐛 **GitHub Issues**: bugs y mejoras al código
+- 💼 **LinkedIn/X**: conversaciones sobre IA y desarrollo
+
+**¡Suscríbete para no perderte nada!** 🔔
+
+---
+
+<div align="center">
+
+### 🎯 ¿Te ha resultado útil este contenido?
+
+{% if cookiecutter.social_linkedin_url %}
+[![Conecta en LinkedIn](https://img.shields.io/badge/💼%20CONECTA%20EN%20LINKEDIN-blue?style=for-the-badge&logo=linkedin&logoColor=white)]({{ cookiecutter.social_linkedin_url }})
+{% endif %}
+¡Nos vemos 👋🏻!
+
+</div>
+
+---
+
+{% endif %}
 ## 📝 Project Information
 
 **Version:** `{{ cookiecutter.project_version }}`  

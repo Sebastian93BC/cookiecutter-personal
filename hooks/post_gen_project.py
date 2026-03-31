@@ -6,6 +6,11 @@ MESSAGE_COLOR = "\x1b[34m"
 WARN_COLOR = "\x1b[33m"
 RESET_ALL = "\x1b[0m"
 
+# Copy .github from template root into the generated project
+template_github = os.path.join(os.getcwd(), '..', '.github')
+if os.path.exists(template_github):
+    shutil.copytree(template_github, '.github', dirs_exist_ok=True)
+
 # Remove license file if not selected
 if "{{ cookiecutter.project_open_source_license }}" == "No license file":
     os.remove("LICENSE")
@@ -16,10 +21,8 @@ if "{{ cookiecutter.use_dvc }}" == "no":
         if os.path.exists(f):
             os.remove(f)
 
-# Remove CI/CD if scope is exploratory
+# Remove pre-commit config if scope is exploratory
 if "{{ cookiecutter.project_scope }}" == "exploratory":
-    if os.path.exists(".github"):
-        shutil.rmtree(".github")
     if os.path.exists(".pre-commit-config.yaml"):
         os.remove(".pre-commit-config.yaml")
 

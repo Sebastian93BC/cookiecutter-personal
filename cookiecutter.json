@@ -11,5 +11,12 @@
     "project_scope": ["exploratory", "production"],
     "use_dvc": ["no", "yes"],
     "use_uv": ["no", "yes"],
-    "remote_url": ""
+    "remote_url": "",
+    "add_readme_header": ["no", "yes"],
+    "add_readme_footer": ["no", "yes"],
+    "social_youtube_channel_id": "",
+    "social_youtube_url": "",
+    "social_github_username": "",
+    "social_linkedin_url": "",
+    "social_x_url": ""
 }
