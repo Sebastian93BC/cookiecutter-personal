@@ -2,11 +2,11 @@
 
 <div align="center">
 
-**📦 Project Badges**
+**Project**
 
-[![Version](https://img.shields.io/badge/version-0.2.0-blue?style=for-the-badge&logo=gitbook&logoColor=white)](https://github.com/Sebastian93BC/cookiecutter-personal) [![Python 3.11+](https://img.shields.io/badge/Python-3.11+-brightgreen?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge&logo=opensourceinitiative&logoColor=white)](LICENSE.md) [![Cookiecutter](https://img.shields.io/badge/Cookiecutter-Template-lightgrey?style=for-the-badge&logo=cookiecutter&logoColor=white)](http://cookiecutter.readthedocs.org/)
+[![Version](https://img.shields.io/badge/version-0.2.1-blue?style=for-the-badge&logo=gitbook&logoColor=white)](https://github.com/Sebastian93BC/cookiecutter-personal) [![Python 3.11+](https://img.shields.io/badge/Python-3.11+-brightgreen?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge&logo=opensourceinitiative&logoColor=white)](LICENSE.md) [![Cookiecutter](https://img.shields.io/badge/Cookiecutter-Template-lightgrey?style=for-the-badge&logo=cookiecutter&logoColor=white)](http://cookiecutter.readthedocs.org/)
 
-**🌐 Social Media**
+**Social Media**
 
 [![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/UCwN6n_iNpulAstpkysAv5jw?style=for-the-badge&logo=youtube&logoColor=white&color=red)](https://www.youtube.com/@jsebastianbustos) [![GitHub followers](https://img.shields.io/github/followers/Sebastian93BC?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Sebastian93BC) [![LinkedIn Follow](https://img.shields.io/badge/LinkedIn-Follow-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sebastian-bustos-cordero-851a1421b/) [![X Follow](https://img.shields.io/badge/X-Follow-black?style=for-the-badge&logo=x&logoColor=white)](https://x.com/bustos_cordero)
 
@@ -16,7 +16,7 @@
 
 ---
 
-## ✨ Why This Template?
+##  Why This Template?
 
 - **📁 Organized structure** — Clear separation of concerns across data, models, features, and visualizations
 - **🔄 Reproducible** — Conda environments ensure consistency across teams and machines
@@ -26,7 +26,7 @@
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 
@@ -65,7 +65,7 @@ Customize your project during setup:
 
 ---
 
-## 🗂️ Project Structure
+##  Project Structure
 
 ```
 📦 your-project/

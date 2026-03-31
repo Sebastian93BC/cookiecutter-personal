@@ -7,9 +7,30 @@ WARN_COLOR = "\x1b[33m"
 RESET_ALL = "\x1b[0m"
 
 # Copy .github from template root into the generated project
-template_github = os.path.join(os.getcwd(), '..', '.github')
-if os.path.exists(template_github):
-    shutil.copytree(template_github, '.github', dirs_exist_ok=True)
+# Strategy 1: navigate up from this hook file's location (works when cookiecutter
+# runs the hook from its original path in the template directory)
+_hook_dir = os.path.dirname(os.path.abspath(__file__))
+_template_github = os.path.join(os.path.dirname(_hook_dir), '.github')
+
+# Strategy 2 (fallback): search sibling directories of the generated project
+# for a folder that contains cookiecutter.json (= the template root)
+if not os.path.isdir(_template_github):
+    _parent = os.path.dirname(os.getcwd())
+    for _sibling in os.listdir(_parent):
+        _sibling_path = os.path.join(_parent, _sibling)
+        if os.path.isdir(_sibling_path) and os.path.isfile(
+            os.path.join(_sibling_path, 'cookiecutter.json')
+        ):
+            _candidate = os.path.join(_sibling_path, '.github')
+            if os.path.isdir(_candidate):
+                _template_github = _candidate
+                break
+
+if os.path.isdir(_template_github):
+    shutil.copytree(_template_github, '.github', dirs_exist_ok=True)
+    print(f"{MESSAGE_COLOR}Copied .github from template root.{RESET_ALL}")
+else:
+    print(f"{WARN_COLOR}WARNING: Could not find .github in template root. Skipping.{RESET_ALL}")
 
 # Remove license file if not selected
 if "{{ cookiecutter.project_open_source_license }}" == "No license file":

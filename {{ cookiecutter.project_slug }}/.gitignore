@@ -93,3 +93,9 @@ models/*
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/
 .ipynb_checkpoints
+
+# Ignore .github
+.github/
+
+# Other files
+notes.txt

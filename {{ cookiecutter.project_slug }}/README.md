@@ -2,8 +2,9 @@
 {% if cookiecutter.add_readme_header == "yes" %}
 <div align="center">
 
-{% if cookiecutter.social_youtube_url and cookiecutter.social_youtube_channel_id %}[![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/{{ cookiecutter.social_youtube_channel_id }}?style=for-the-badge&logo=youtube&logoColor=white&color=red)]({{ cookiecutter.social_youtube_url }}) {% endif %}{% if cookiecutter.social_github_username %}[![GitHub followers](https://img.shields.io/github/followers/{{ cookiecutter.social_github_username }}?style=for-the-badge&logo=github&logoColor=white)](https://github.com/{{ cookiecutter.social_github_username }}) {% endif %}{% if cookiecutter.social_linkedin_url %}[![LinkedIn Follow](https://img.shields.io/badge/LinkedIn-Follow-blue?style=for-the-badge&logo=linkedin&logoColor=white)]({{ cookiecutter.social_linkedin_url }}) {% endif %}{% if cookiecutter.social_x_url %}[![X Follow](https://img.shields.io/badge/X-Follow-black?style=for-the-badge&logo=x&logoColor=white)]({{ cookiecutter.social_x_url }}){% endif %}
+**🌐 Social Media**
 
+{% if cookiecutter.social_youtube_url and cookiecutter.social_youtube_channel_id %}[![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/{{ cookiecutter.social_youtube_channel_id }}?style=for-the-badge&logo=youtube&logoColor=white&color=red)]({{ cookiecutter.social_youtube_url }}) {% endif %}{% if cookiecutter.social_github_username %}[![GitHub followers](https://img.shields.io/github/followers/{{ cookiecutter.social_github_username }}?style=for-the-badge&logo=github&logoColor=white)](https://github.com/{{ cookiecutter.social_github_username }}) {% endif %}{% if cookiecutter.social_linkedin_url %}[![LinkedIn Follow](https://img.shields.io/badge/LinkedIn-Follow-blue?style=for-the-badge&logo=linkedin&logoColor=white)]({{ cookiecutter.social_linkedin_url }}) {% endif %}{% if cookiecutter.social_x_url %}[![X Follow](https://img.shields.io/badge/X-Follow-black?style=for-the-badge&logo=x&logoColor=white)]({{ cookiecutter.social_x_url }}){% endif %}
 
 </div>
 

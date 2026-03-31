@@ -13,6 +13,19 @@ _Upcoming features and improvements in development._
 
 ---
 
+## [0.2.1] - 2026-03-31
+
+### ✨ Added
+
+- 📝 Actualización de documentación y preparación de release notes para la versión 0.2.1.
+- ⚙️ Badge de versión actualizado en `README.md`.
+
+### 🔄 Changed
+
+- 📝 Changelog y referencias de versión alineadas con release 0.2.1.
+
+---
+
 ## [0.2.0] - 2026-03-23
 
 ### ✨ Added
@@ -93,6 +106,7 @@ _Upcoming features and improvements in development._
 
 | Version | Date | Release Notes |
 |---------|------|---------------|
+| v0.2.1 | 2026-03-31 | Documentation update, version bump, release notes prep |
 | v0.2.0 | 2026-03-23 | Enhanced DX, AI-ready, badges, licensing |
 | v0.1.0 | Initial | Complete template with core functionality |
 
@@ -101,8 +115,9 @@ _Upcoming features and improvements in development._
 ## 🔗 Links
 
 - **GitHub:** [Sebastian93BC/cookiecutter-personal](https://github.com/Sebastian93BC/cookiecutter-personal)
-- **Changelog:** [Compare v0.1.0...HEAD](https://github.com/Sebastian93BC/cookiecutter-personal/compare/v0.1.0...HEAD)
+- **Changelog:** [Compare v0.2.1...HEAD](https://github.com/Sebastian93BC/cookiecutter-personal/compare/v0.2.1...HEAD)
 
-[Unreleased]: https://github.com/Sebastian93BC/cookiecutter-personal/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/Sebastian93BC/cookiecutter-personal/compare/v0.2.1...HEAD
+[0.2.1]: https://github.com/Sebastian93BC/cookiecutter-personal/releases/tag/v0.2.1
 [0.2.0]: https://github.com/Sebastian93BC/cookiecutter-personal/releases/tag/v0.2.0
 [0.1.0]: https://github.com/Sebastian93BC/cookiecutter-personal/releases/tag/v0.1.0

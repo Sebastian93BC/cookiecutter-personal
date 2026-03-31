@@ -1,0 +1,3 @@
+[submodule ".config/universal-ide-agents"]
+	path = .config/universal-ide-agents
+	url = git@github.com:Sebastian93BC/universal-ide-agents.git

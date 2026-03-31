@@ -6,7 +6,8 @@ applyTo: "docs/**/*.md"
 ## General Guidelines
 - Write clear and concise documentation.
 - Use consistent terminology and style.
-- Include code examples where applicable.
+- Document the repository as VS Code-first.
+- Include command examples when they reduce ambiguity.
 
 ## Grammar
 * Use present tense verbs (is, open) instead of past tense (was, opened).
@@ -19,3 +20,4 @@ applyTo: "docs/**/*.md"
 - Use bullet points for lists.
 - Include links to related resources.
 - Use code blocks for code snippets.
+- Keep examples runnable and version-conscious.

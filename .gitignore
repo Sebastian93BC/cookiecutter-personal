@@ -105,3 +105,10 @@ notes.txt
 .docx
 .xlsx
 .pptx
+
+
+# Ignore .github
+.github/
+
+# Other files
+notes.txt
